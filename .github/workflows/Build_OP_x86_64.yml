@@ -68,7 +68,7 @@ jobs:
         
     - name: Clone passwall code
       run: |
-        cd lede/package &&  git clone https://github.com/chengood5000/passwall652.git
+        cd openwrt/package &&  git clone https://github.com/chengood5000/passwall652.git
         
     - name: Update & Install feeds
       working-directory: ./openwrt
