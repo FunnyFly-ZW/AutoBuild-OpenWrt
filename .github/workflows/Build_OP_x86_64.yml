@@ -11,15 +11,15 @@ on:
   release:
     types: [published]
 
-  push:
-    branches: 
-      - master
+  #push:
+  #  branches: 
+  #    - master
 
   #schedule:
   #  - cron: 0 8 * * 5
   
   #watch:
-  #  types: [started]1
+  #  types: [started]
 
 jobs:
   build:
@@ -65,6 +65,10 @@ jobs:
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
         sed -i '5s/#//' feeds.conf.default
+        
+    - name: Clone passwall code
+      run: |
+        cd lede/package &&  git clone https://github.com/chengood5000/passwall652.git
         
     - name: Update & Install feeds
       working-directory: ./openwrt
